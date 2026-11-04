@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="hy" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#4FB3A4"/>
+<title>Serene Dental — Բարձրակարգ ստոմատոլոգիա</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Armenian:wght@400;500;600&family=Noto+Serif+Armenian:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5FAF9;--bg-alt:#E7F3F0;--surface:#FFFFFF;--sand:#D8EAE5;--accent:#DFF0EC;--primary:#4FB3A4;--primary-dark:#2E8C7D;--primary-light:#8ED2C6;--gold:#7CCFC0;--text:#274343;--text-soft:#5D7474;--text-muted:#8AA3A1;--border:#D2E5E0;--shadow-sm:0 2px 10px rgba(46,140,125,.10);--shadow-md:0 10px 30px rgba(46,140,125,.15);--shadow-lg:0 24px 70px rgba(46,140,125,.22);--radius-sm:10px;--radius-md:16px;--radius-lg:28px;--transition:.3s cubic-bezier(.4,0,.2,1);--header-height:74px}
+[data-theme="dark"]{--bg:#10201E;--bg-alt:#152826;--surface:#1B3230;--sand:#24403C;--accent:#213B38;--primary:#4FB3A4;--primary-dark:#7CCFC0;--primary-light:#2E6B60;--gold:#3E8F83;--text:#EAF4F2;--text-soft:#B7CCC9;--text-muted:#7E9794;--border:#2A4542;--shadow-sm:0 2px 10px rgba(0,0,0,.35);--shadow-md:0 10px 30px rgba(0,0,0,.45);--shadow-lg:0 24px 70px rgba(0,0,0,.55)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-height)}
+body{font-family:'Inter','Noto Sans Armenian',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background var(--transition),color var(--transition)}
+h1,h2,h3,h4{font-family:'Playfair Display','Noto Serif Armenian',Georgia,serif;font-weight:600;line-height:1.2;color:var(--text)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+::selection{background:var(--gold);color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.9rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:all var(--transition);border:1px solid transparent}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.btn-outline{background:transparent;color:var(--text-soft);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;height:var(--header-height);z-index:1000;background:rgba(245,250,249,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:all var(--transition)}
+[data-theme="dark"] .header{background:rgba(16,32,30,.86)}
+.header.scrolled{box-shadow:var(--shadow-sm)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:'Playfair Display','Noto Serif Armenian',serif;font-size:1.3rem;font-weight:700;color:var(--primary-dark)}
+.logo svg{width:30px;height:30px}
+.nav-list{display:flex;gap:1.7rem;list-style:none}
+.nav-list a{font-size:.93rem;font-weight:500;color:var(--text-soft);position:relative;transition:color var(--transition)}
+.nav-list a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--primary);transition:width var(--transition)}
+.nav-list a:hover,.nav-list a.active{color:var(--primary-dark)}
+.nav-list a:hover::after,.nav-list a.active::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:.7rem}
+.lang-switch{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:3px;gap:2px}
+.lang-btn{padding:.32rem .62rem;font-size:.72rem;font-weight:700;letter-spacing:.4px;color:var(--text-soft);border-radius:999px;transition:all var(--transition)}
+.lang-btn.active{background:var(--primary);color:#fff}
+.theme-toggle{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-soft);transition:all var(--transition)}
+.theme-toggle:hover{background:var(--bg-alt);color:var(--primary-dark)}
+.theme-toggle .icon-moon{display:none}
+[data-theme="dark"] .theme-toggle .icon-sun{display:none}
+[data-theme="dark"] .theme-toggle .icon-moon{display:block}
+.menu-toggle{display:none;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.menu-toggle span{width:22px;height:2px;background:var(--text);transition:all var(--transition)}
+.menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hero{padding:calc(var(--header-height) + 4.5rem) 0 5.5rem;background:linear-gradient(160deg,var(--bg) 0%,var(--bg-alt) 60%,var(--sand) 130%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;right:-15%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(126,207,192,.35) 0%,transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:999px;font-size:.84rem;color:var(--text-soft);margin-bottom:1.5rem;box-shadow:var(--shadow-sm)}
+.hero-badge .dot{width:8px;height:8px;background:#7FB069;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.35)}}
+.hero h1{font-size:clamp(2.3rem,5vw,3.8rem);margin-bottom:1rem}
+.hero h1 span{color:var(--primary-dark);font-style:italic}
+.hero-tagline{font-family:'Playfair Display','Noto Serif Armenian',serif;font-style:italic;font-size:1.2rem;color:var(--primary-dark);margin-bottom:.9rem;font-weight:600}
+.hero p{font-size:1.06rem;color:var(--text-soft);margin-bottom:2.1rem;max-width:540px}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
+.stat-num{font-family:'Playfair Display','Noto Serif Armenian',serif;font-size:2rem;font-weight:700;color:var(--primary-dark)}
+.stat-label{font-size:.84rem;color:var(--text-muted)}
+.hero-visual{position:relative;aspect-ratio:1/1.08;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--sand)}
+.hero-visual img{width:100%;height:100%;object-fit:cover}
+.floating-card{position:absolute;background:var(--surface);padding:.9rem 1.15rem;border-radius:var(--radius-md);box-shadow:var(--shadow-md);display:flex;align-items:center;gap:.7rem;font-size:.88rem;font-weight:500}
+.floating-card .fc-icon{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.floating-card small{display:block;font-size:.72rem;color:var(--text-muted);font-weight:400}
+.card-1{top:9%;left:-9%;animation:float 4.5s ease-in-out infinite}
+.card-2{bottom:13%;right:-7%;animation:float 4.5s ease-in-out infinite 2.2s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.section{padding:6rem 0}
+.section-alt{background:var(--bg-alt)}
+.section-header{text-align:center;max-width:700px;margin:0 auto 3.5rem}
+.section-tag{display:inline-block;padding:.35rem 1.1rem;background:var(--accent);color:var(--primary-dark);border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:1rem}
+.section-header h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1rem}
+.section-header p{color:var(--text-soft);font-size:1.03rem}
+.services-filter{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.filter-btn{padding:.6rem 1.3rem;background:var(--surface);color:var(--text-soft);border:1px solid var(--border);border-radius:999px;font-size:.9rem;font-weight:500;transition:all var(--transition)}
+.filter-btn:hover{border-color:var(--primary);color:var(--primary-dark)}
+.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem}
+.service-card{background:var(--surface);padding:2rem;border-radius:var(--radius-md);border:1px solid var(--border);transition:all var(--transition);position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--primary),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform var(--transition)}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:56px;height:56px;border-radius:var(--radius-sm);background:var(--accent);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.service-card h3{font-family:'Inter','Noto Sans Armenian',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:.7rem}
+.service-card p{color:var(--text-soft);font-size:.94rem;margin-bottom:1rem}
+.service-meta{display:flex;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border);font-size:.84rem;color:var(--text-muted)}
+.service-price{font-weight:600;color:var(--primary-dark)}
+.service-card.hidden{display:none}
+.more-wrap{text-align:center;margin-top:3rem}
+.booking-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;background:var(--surface);border-radius:var(--radius-lg);padding:3rem;box-shadow:var(--shadow-md);border:1px solid var(--border)}
+.booking-info h2{font-size:1.8rem;margin-bottom:1rem}
+.booking-info>p{color:var(--text-soft);margin-bottom:2rem}
+.contact-items{display:grid;gap:1.25rem}
+.contact-item{display:flex;gap:1rem;align-items:flex-start}
+.contact-icon{flex-shrink:0;width:44px;height:44px;border-radius:var(--radius-sm);background:var(--accent);color:var(--primary-dark);display:flex;align-items:center;justify-content:center}
+.contact-item h4{font-family:'Inter','Noto Sans Armenian',sans-serif;font-size:.95rem;margin-bottom:.1rem}
+.contact-item p{font-size:.9rem;color:var(--text-soft)}
+.booking-form{display:grid;gap:1rem;align-content:start}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column}
+.form-group label{font-size:.84rem;font-weight:500;color:var(--text-soft);margin-bottom:.45rem}
+.form-control{padding:.8rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-family:inherit;font-size:.95rem;color:var(--text);transition:all var(--transition)}
+.form-control:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,179,164,.20)}
+textarea.form-control{resize:vertical;min-height:90px}
+.form-message{padding:.85rem 1rem;border-radius:var(--radius-sm);font-size:.9rem;display:none}
+.form-message.success{display:block;background:#E4F0DD;color:#3D5A2E;border:1px solid #C6DFB8}
+.form-message.error{display:block;background:#F6E0DC;color:#7A2E21;border:1px solid #EAC4BC}
+.footer{background:var(--bg-alt);padding:4rem 0 2rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{color:var(--text-soft);margin:1rem 0 1.5rem;font-size:.94rem}
+.social-links{display:flex;gap:.75rem}
+.social-links a{width:38px;height:38px;border-radius:50%;background:var(--surface);color:var(--text-soft);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);transition:all var(--transition)}
+.social-links a:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.footer h4{font-family:'Inter','Noto Sans Armenian',sans-serif;font-size:1rem;margin-bottom:1.25rem}
+.footer-list{list-style:none;display:grid;gap:.7rem}
+.footer-list a{color:var(--text-soft);font-size:.92rem;transition:color var(--transition)}
+.footer-list a:hover{color:var(--primary-dark)}
+.newsletter{display:flex;gap:.5rem;margin-top:1rem}
+.newsletter input{flex:1;min-width:0;padding:.75rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:999px;font-family:inherit;color:var(--text)}
+.newsletter input:focus{outline:none;border-color:var(--primary)}
+.footer-bottom{padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--text-muted);font-size:.87rem}
+.footer-bottom a{margin-right:1rem}
+.back-to-top{position:fixed;bottom:2rem;right:2rem;width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);opacity:0;visibility:hidden;transform:translateY(20px);transition:all var(--transition);z-index:999}
+.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media (max-width:1020px){.nav-list{gap:1.1rem}}
+@media (max-width:900px){
+  .hero-grid,.booking-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-visual{max-width:440px;margin:0 auto}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .booking-grid{padding:2rem}
+  .form-row{grid-template-columns:1fr}
+  .menu-toggle{display:flex}
+  .nav{position:fixed;top:var(--header-height);left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);max-height:0;overflow:hidden;transition:max-height var(--transition)}
+  .nav.open{max-height:520px}
+  .nav-list{flex-direction:column;padding:1.5rem;gap:1rem}
+  .floating-card{display:none}
+}
+@media (max-width:600px){
+  .section{padding:4rem 0}
+  .footer-grid{grid-template-columns:1fr}
+  .hero{padding-top:calc(var(--header-height) + 2.5rem)}
+  .hero-cta{flex-direction:column}
+  .btn-book{display:none}
+  .logo span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3C11 3 8 5.5 7 9C5.5 8 4 9 4 11C4 13 5.5 14.5 6 15C5 19 6 23 8 27C9 29 11 29 11.5 27C12.5 23 13.5 21 16 21C18.5 21 19.5 23 20.5 27C21 29 23 29 24 27C26 23 27 19 26 15C26.5 14.5 28 13 28 11C28 9 26.5 8 25 9C24 5.5 21 3 16 3Z" fill="currentColor"/></svg><span>Serene Dental</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="active" data-i18n="nav_home">Գլխավոր</a></li>
+        <li><a href="services.html" data-i18n="nav_services">Ծառայություններ</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Մեր մասին</a></li>
+        <li><a href="about.html#team" data-i18n="nav_team">Բժիշկներ</a></li>
+        <li><a href="about.html#results" data-i18n="nav_results">Արդյունքներ</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Կապ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn active" data-lang="hy">ՀԱՅ</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#contact" class="btn btn-primary btn-book" style="padding:.6rem 1.3rem;font-size:.87rem" data-i18n="nav_book">Ամրագրել այց</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <div class="hero-badge"><span class="dot"></span><span data-i18n="hero_badge">Ընդունում ենք նոր պացիենտներ</span></div>
+      <h1 data-i18n="hero_title">Նուրբ խնամք <span>ճառագայթող ժպիտ</span></h1>
+      <div class="hero-tagline" data-i18n="hero_tagline">Արվեստը՝ ձեր ժպիտի մեջ։</div>
+      <p data-i18n="hero_text">Բարձրակարգ ստոմատոլոգիա՝ անհատական մոտեցմամբ, ժամանակակից տեխնոլոգիաներով և հոգատարությամբ յուրաքանչյուր այցի ընթացքում։</p>
+      <div class="hero-cta">
+        <a href="index.html#contact" class="btn btn-primary"><span data-i18n="hero_cta1">Ամրագրել այց</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="services.html" class="btn btn-outline" data-i18n="hero_cta2">Դիտել ծառայությունները</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num" data-target="15">0</div><div class="stat-label" data-i18n="stat_years">Տարիների փորձ</div></div>
+        <div><div class="stat-num" data-target="8500">0</div><div class="stat-label" data-i18n="stat_patients">Երջանիկ պացիենտներ</div></div>
+        <div><div class="stat-num" data-target="98" data-suffix="%">0</div><div class="stat-label" data-i18n="stat_satisfaction">Գոհունակության մակարդակ</div></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="reception.jpg" alt="Serene Dental — ընդունարան">
+      <div class="floating-card card-1">
+        <div class="fc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+           </div>
+      <div class="floating-card card-2">
+        <div class="fc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div><div style="font-weight:600">4.9 / 5.0</div><small data-i18n="float2_sub">1200+ կարծիք</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="services_tag">Մեր ծառայությունները</span>
+      <h2 data-i18n="services_title">Ամբողջական ստոմատոլոգիական խնամք՝ մեկ հարկի տակ</h2>
+      <p data-i18n="services_text">Սովորական մաքրումից մինչև ժամանակակից էսթետիկ ընթացակարգեր՝ մենք առաջարկում ենք բուժումների ամբողջական շարք՝ հարմարեցված ձեր կարիքներին։</p>
+    </div>
+    <div class="services-filter reveal">
+      <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Բոլորը</button>
+      <button class="filter-btn" data-filter="general" data-i18n="filter_general">Ընդհանուր</button>
+      <button class="filter-btn" data-filter="cosmetic" data-i18n="filter_cosmetic">Էսթետիկ</button>
+      <button class="filter-btn" data-filter="orthodontics" data-i18n="filter_ortho">Օրթոդոնտիա</button>
+      <button class="filter-btn" data-filter="surgery" data-i18n="filter_surgery">Վիրաբուժություն</button>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+    <div class="more-wrap reveal"><a href="services.html" class="btn btn-outline"><span data-i18n="more_btn">Մանրամասն բոլոր ծառայությունները</span> →</a></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div class="booking-grid reveal">
+      <div class="booking-info">
+        <span class="section-tag" data-i18n="book_tag">Գրանցվել</span>
+        <h2 data-i18n="book_title">Պլանավորեք ձեր այցը</h2>
+        <p data-i18n="book_text">Լրացրեք ձևը, և մենք կհաստատենք ձեր ընդունելությունը մեկ աշխատանքային ժամվա ընթացքում։</p>
+        <div class="contact-items">
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><h4 data-i18n="c_phone">Հեռախոս</h4><p>+374 10 123 456</p></div></div>
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4 data-i18n="c_email">Էլ. փոստ</h4><p>hello@serenedental.am</p></div></div>
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4 data-i18n="c_location">Հասցե</h4><p data-i18n="c_address">Երևան, Սարյան 2</p><button type="button" id="mapToggle" class="btn btn-outline" style="padding:.45rem 1.1rem;font-size:.8rem;margin-top:.6rem" data-i18n="c_map">📍 եսնել քարտեզը</button></div></div>
+          <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4 data-i18n="c_hours">Աշխատանքային ժամեր</h4><p data-i18n="hours_value">Երկ–Ուրբ՝ 8:00–19:00<br>Շաբ 9:00–16:00</p></div></div>
+        </div>
+        <div id="mapBox" style="display:none;margin-top:1.5rem;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm)">
+          <iframe title="Serene Dental — Քարտեզ" src="https://www.google.com/maps?q=Saryan+2,+Yerevan,+Armenia&output=embed" width="100%" height="260" style="border:0;display:block" loading="lazy"></iframe>
+        </div>
+      </div>
+      <form class="booking-form" id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="form-group"><label for="fname" data-i18n="f_fname">Անուն *</label><input type="text" id="fname" class="form-control" required></div>
+          <div class="form-group"><label for="lname" data-i18n="f_lname">Ազգանուն *</label><input type="text" id="lname" class="form-control" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="email" data-i18n="f_email">Էլ. փոստ *</label><input type="email" id="email" class="form-control" required></div>
+          <div class="form-group"><label for="phone" data-i18n="f_phone">Հեռախոս *</label><input type="tel" id="phone" class="form-control" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="service" data-i18n="f_service">Ծառայություն</label><select id="service" class="form-control"></select></div>
+          <div class="form-group"><label for="date" data-i18n="f_date">Ցանկալի ամսաթիվ *</label><input type="date" id="date" class="form-control" required></div>
+        </div>
+        <div class="form-group"><label for="message" data-i18n="f_notes">Լրացուցիչ նշումներ</label><textarea id="message" class="form-control" data-i18n-ph="f_notes_ph" placeholder="Պատմեք ձեր մտահոգությունների կամ նախընտրությունների մասին..."></textarea></div>
+        <div class="form-message" id="formMessage"></div>
+        <button type="submit" class="btn btn-primary"><span data-i18n="f_submit">Պահանջել ընդունելություն</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><svg viewBox="0 0 32 32" fill="none" width="30" height="30"><path d="M16 3C11 3 8 5.5 7 9C5.5 8 4 9 4 11C4 13 5.5 14.5 6 15C5 19 6 23 8 27C9 29 11 29 11.5 27C12.5 23 13.5 21 16 21C18.5 21 19.5 23 20.5 27C21 29 23 29 24 27C26 23 27 19 26 15C26.5 14.5 28 13 28 11C28 9 26.5 8 25 9C24 5.5 21 3 16 3Z" fill="currentColor"/></svg><span>Serene Dental</span></a>
+        <p data-i18n="foot_about">Նուրբ, ժամանակակից ստոմատոլոգիական խնամք կյանքի յուրաքանչյուր փուլի համար։ Ձեր ժպիտը մեր կիրքն է։</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Telegram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="foot_links">Արագ հղումներ</h4>
+        <ul class="footer-list">
+          <li><a href="index.html" data-i18n="nav_home">Գլխավոր</a></li>
+          <li><a href="services.html" data-i18n="nav_services">Ծառայություններ</a></li>
+          <li><a href="about.html" data-i18n="nav_about">Մեր մասին</a></li>
+          <li><a href="about.html#team" data-i18n="nav_team">Բժիշկներ</a></li>
+          <li><a href="index.html#contact" data-i18n="nav_contact">Կապ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_services">Ծառայություններ</h4>
+        <ul class="footer-list">
+          <li><a href="services.html" data-i18n="foot_s1">Ընդհանուր ստոմատոլոգիա</a></li>
+          <li><a href="services.html" data-i18n="foot_s2">Էսթետիկ ստոմատոլոգիա</a></li>
+          <li><a href="services.html" data-i18n="foot_s3">Օրթոդոնտիա</a></li>
+          <li><a href="services.html" data-i18n="foot_s4">Իմպլանտներ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_news">Տեղեկացված մնացեք</h4>
+        <p style="color:var(--text-soft);font-size:.92rem" data-i18n="foot_news_text">Ստոմատոլոգիական խորհուրդներ և բացառիկ առաջարկներ՝ ամեն ամիս։</p>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" required data-i18n-ph="foot_news_ph" placeholder="Ձեր էլ. փոստը">
+          <button type="submit" class="btn btn-primary" style="padding:.75rem 1.2rem" aria-label="Subscribe"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="foot_rights">© 2026 Serene Dental կլինիկա։ Բոլոր իրավունքները պաշտպանված են։</p>
+      <p><a href="#" data-i18n="foot_privacy">Գաղտնիության քաղաքականություն</a><a href="#" data-i18n="foot_terms">Ծառայության պայմաններ</a></p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script>
+const i18n={
+hy:{doc_title:"Serene Dental — Բարձրակարգ ստոմատոլոգիա",nav_home:"Գլխավոր",nav_services:"Ծառայություններ",nav_about:"Մեր մասին",nav_team:"Բժիշկներ",nav_results:"Արդյունքներ",nav_contact:"Կապ",nav_book:"Ամրագրել այց",
+hero_badge:"Ընդունում ենք նոր պացիենտներ",hero_title:'Նուրբ խնամք <span>ճառագայթող ժպիտ</span>',hero_tagline:"Արվեստը՝ ձեր ժպիտի մեջ։",hero_text:"Բարձրակարգ ստոմատոլոգիա՝ անհատական մոտեցմամբ, ժամանակակից տեխնոլոգիաներով և հոգատարությամբ յուրաքանչյուր այցի ընթացքում։",hero_cta1:"Ամրագրել այց",hero_cta2:"Դիտել ծառայությունները",
+stat_years:"Տարիների փորձ",stat_patients:"Երջանիկ պացիենտներ",stat_satisfaction:"Գոհունակության մակարդակ",float1_title:"Սերտիֆիկացված կլինիկա",float2_sub:"1200+ կարծիք",
+services_tag:"Մեր ծառայությունները",services_title:"Ամբողջական ստոմատոլոգիական խնամք՝ մեկ հարկի տակ",services_text:"Սովորական մաքրումից մինչև ժամանակակից էսթետիկ ընթացակարգեր՝ մենք առաջարկում ենք բուժումների ամբողջական շարք՝ հարմարեցված ձեր կարիքներին։",
+filter_all:"Բոլորը",filter_general:"Ընդհանուր",filter_cosmetic:"Էսթետիկ",filter_ortho:"Օրթոդոնտիա",filter_surgery:"Վիրաբուժություն",more_btn:"Մանրամասն բոլոր ծառայությունները",
+book_tag:"Գրանցվել",book_title:"Պլանավորեք ձեր այցը",book_text:"Լրացրեք ձևը, և մենք կհաստատենք ձեր ընդունելությունը մեկ աշխատանքային ժամվա ընթացքում։",
+c_phone:"Հեռախոս",c_email:"Էլ. փոստ",c_location:"Հասցե",c_address:"Երևան, Սարյան 2",c_map:"📍 Տեսնել քարտեզը",c_hours:"Աշխատանքային ժամեր",hours_value:"Երկ–Ուրբ՝ 8:00–19:00<br>Շաբ 9:00–16:00",
+f_fname:"Անուն *",f_lname:"Ազգանուն *",f_email:"Էլ. փոստ *",f_phone:"Հեռախոս *",f_service:"Ծառայություն",f_select:"Ընտրեք ծառայություն",f_date:"Ցանկալի ամսաթիվ *",f_notes:"Լրացուցիչ նշումներ",f_notes_ph:"Պատմեք ձեր մտահոգությունների կամ նախընտրությունների մասին...",f_submit:"Պահանջել ընդունելություն",
+msg_required:"⚠ Խնդրում ենք լրացնել բոլոր պարտադիր դաշտերը։",msg_email:"⚠ Խնդրում ենք մուտքագրել վավեր էլ. փոստ։",msg_success:"✓ Շնորհակալություն, {name}։ Մենք ստացել ենք ձեր հայտը և կկապվենք 1 ժամվա ընթացքում՝ հաստատելու համար։",
+foot_about:"Նուրբ, ժամանակակից ստոմատոլոգիական խնամք կյանքի յուրաքանչյուր փուլի համար։ Ձեր ժպիտը մեր կիրքն է։",foot_links:"Արագ հղումներ",foot_services:"Ծառայություններ",foot_news:"Տեղեկացված մնացեք",foot_news_text:"Ստոմատոլոգիական խորհուրդներ և բացառիկ առաջարկներ՝ ամեն ամիս։",foot_news_ph:"Ձեր էլ. փոստը",news_thanks:"✓ Շնորհակալություն բաժանորդագրվելու համար․ {email}",
+foot_rights:"© 2026 Serene Dental կլինիկա։ Բոլոր իրավունքները պաշտպանված են։",foot_privacy:"Գաղտնիության քաղաքականություն",foot_terms:"Ծառայության պայմաններ",
+foot_s1:"Ընդհանուր ստոմատոլոգիա",foot_s2:"Էսթետիկ ստոմատոլոգիա",foot_s3:"Օրթոդոնտիա",foot_s4:"Իմպլանտներ"},
+en:{doc_title:"Serene Dental — Premium Dental Care",nav_home:"Home",nav_services:"Services",nav_about:"About Us",nav_team:"Doctors",nav_results:"Results",nav_contact:"Contact",nav_book:"Book a Visit",
+hero_badge:"Now accepting new patients",hero_title:'Gentle Care for a <span>Radiant Smile</span>',hero_tagline:"The art in your smile.",hero_text:"Premium dentistry with a personal approach, modern technology, and genuine care at every single visit.",hero_cta1:"Book a Visit",hero_cta2:"View Services",
+stat_years:"Years of Experience",stat_patients:"Happy Patients",stat_satisfaction:"Satisfaction Rate",float1_title:"Certified Clinic",float2_sub:"1,200+ reviews",
+services_tag:"Our Services",services_title:"Complete Dental Care Under One Roof",services_text:"From routine cleanings to advanced cosmetic procedures, we offer a full range of treatments tailored to your needs.",
+filter_all:"All",filter_general:"General",filter_cosmetic:"Cosmetic",filter_ortho:"Orthodontics",filter_surgery:"Surgery",more_btn:"All services in detail",
+book_tag:"Book Now",book_title:"Schedule Your Visit",book_text:"Fill out the form and we'll confirm your appointment within one business hour.",
+c_phone:"Phone",c_email:"Email",c_location:"Address",c_address:"2 Saryan St, Yerevan",c_map:"📍 View Map",c_hours:"Hours",hours_value:"Mon–Fri: 8:00–19:00<br>Sat: 9:00–16:00",
+f_fname:"First Name *",f_lname:"Last Name *",f_email:"Email *",f_phone:"Phone *",f_service:"Service",f_select:"Select a service",f_date:"Preferred Date *",f_notes:"Additional Notes",f_notes_ph:"Tell us about any concerns or preferences...",f_submit:"Request Appointment",
+msg_required:"⚠ Please fill in all required fields.",msg_email:"⚠ Please enter a valid email address.",msg_success:"✓ Thank you, {name}! We've received your request and will contact you within 1 hour to confirm.",
+foot_about:"Gentle, modern dental care for every stage of life. Your smile is our passion.",foot_links:"Quick Links",foot_services:"Services",foot_news:"Stay Updated",foot_news_text:"Dental tips and exclusive offers, delivered monthly.",foot_news_ph:"Your email",news_thanks:"✓ Thanks for subscribing with {email}!",
+foot_rights:"© 2026 Serene Dental Clinic. All rights reserved.",foot_privacy:"Privacy Policy",foot_terms:"Terms of Service",
+foot_s1:"General Dentistry",foot_s2:"Cosmetic Dentistry",foot_s3:"Orthodontics",foot_s4:"Dental Implants"},
+ru:{doc_title:"Serene Dental — Стоматология премиум-класса",nav_home:"Главная",nav_services:"Услуги",nav_about:"О нас",nav_team:"Врачи",nav_results:"Результаты",nav_contact:"Контакты",nav_book:"Записаться",
+hero_badge:"Принимаем новых пациентов",hero_title:'Нежная забота — <span>сияющая улыбка</span>',hero_tagline:"Искусство в вашей улыбке.",hero_text:"Стоматология премиум-класса с индивидуальным подходом, современными технологиями и заботой на каждом визите.",hero_cta1:"Записаться",hero_cta2:"Смотреть услуги",
+stat_years:"Лет опыта",stat_patients:"Довольных пациентов",stat_satisfaction:"Довольны результатом",float1_title:"Сертифицированная клиника",float2_sub:"более 1200 отзывов",
+services_tag:"Наши услуги",services_title:"Полный спектр стоматологии в одном месте",services_text:"От обычной чистки до современных эстетических процедур — полный спектр лечения под ваши потребности.",
+filter_all:"Все",filter_general:"Терапия",filter_cosmetic:"Эстетика",filter_ortho:"Ортодонтия",filter_surgery:"Хирургия",more_btn:"Все услуги подробно",
+book_tag:"Запись",book_title:"Запланируйте визит",book_text:"Заполните форму, и мы подтвердим запись в течение одного рабочего часа.",
+c_phone:"Телефон",c_email:"Email",c_location:"Адрес",c_address:"Ереван, ул. Сарьяна 2",c_map:"📍 Показать карту",c_hours:"Часы работы",hours_value:"Пн–Пт: 8:00–19:00<br>Сб: 9:00–16:00",
+f_fname:"Имя *",f_lname:"Фамилия *",f_email:"Email *",f_phone:"Телефон *",f_service:"Услуга",f_select:"Выберите услугу",f_date:"Желаемая дата *",f_notes:"Дополнительные заметки",f_notes_ph:"Расскажите о ваших пожеланиях...",f_submit:"Отправить заявку",
+msg_required:"⚠ Пожалуйста, заполните все обязательные поля.",msg_email:"⚠ Пожалуйста, введите корректный email.",msg_success:"✓ Спасибо, {name}! Мы получили вашу заявку и свяжемся в течение часа.",
+foot_about:"Деликатный современный уход за зубами на каждом этапе жизни. Ваша улыбка — наша страсть.",foot_links:"Быстрые ссылки",foot_services:"Услуги",foot_news:"Будьте в курсе",foot_news_text:"Советы по уходу и эксклюзивные предложения — каждый месяц.",foot_news_ph:"Ваш email",news_thanks:"✓ Спасибо за подписку: {email}!",
+foot_rights:"© 2026 Клиника Serene Dental. Все права защищены.",foot_privacy:"Политика конфиденциальности",foot_terms:"Условия использования",
+foot_s1:"Терапия",foot_s2:"Эстетика",foot_s3:"Ортодонтия",foot_s4:"Имплантация"}};
+const L=(en,hy,ru)=>({en,hy,ru});
+const services=[
+{icon:"check",cat:"general",price:L("From $80","$80-ից","от $80"),dur:L("45 min","45 րոպե","45 мин"),title:L("General Checkup","Ընդհանուր ստուգում","Общий осмотр"),desc:L("Comprehensive exams to keep your teeth and gums healthy.","Համապարփակ հետազոտություն՝ ատամներն ու լնդերը առողջ պահելու համար։","Комплексный осмотр для здоровья зубов и дёсен.")},
+{icon:"sparkle",cat:"general",price:L("From $120","$120-ից","от $120"),dur:L("60 min","60 րոպե","60 мин"),title:L("Teeth Cleaning","Ատամների մաքրում","Чистка зубов"),desc:L("Professional cleaning to remove plaque and prevent decay.","Պրոֆեսիոնալ մաքրում՝ փառը հեռացնելու և փտումը կանխելու համար։","Профессиональная чистка для удаления налёта и профилактики кариеса.")},
+{icon:"star",cat:"cosmetic",price:L("From $350","$350-ից","от $350"),dur:L("90 min","90 րոպե","90 мин"),title:L("Teeth Whitening","Ատամների սպիտակեցում","Отбеливание зубов"),desc:L("Brighten your smile by several shades in a single visit.","Պայծառացրեք ձեր ժպիտը մի քանի երանգով՝ նդամենը մեկ այցով։","Осветлите улыбку на несколько тонов за один визит.")},
+{icon:"layers",cat:"cosmetic",price:L("From $900","$900-ից","от $900"),dur:L("2 visits","2 այց","2 визита"),title:L("Porcelain Veneers","Ճենապակե վինիրներ","Керамические виниры"),desc:L("Custom-crafted veneers for a flawless, natural look.","Անհատական պատրաստված վինիրներ՝ անթերի, բնական տեսքի համար։","Виниры ручной работы для безупречного естественного вида.")},
+{icon:"smile",cat:"orthodontics",price:L("From $3,500","$3,500-ից","от $3,500"),dur:L("12–18 mo","12–18 ամիս","12–18 мес"),title:L("Invisible Braces","Անտեսանելի էլայներներ","Невидимые элайнеры"),desc:L("Clear aligners that straighten teeth discreetly.","Թափանցիկ էլայներներ՝ ատամները նրբորեն շտկելու համար։","Прозрачные элайнеры для деликатного выравнивания.")},
+{icon:"grid",cat:"orthodontics",price:L("From $2,800","$2,800-ից","от $2,800"),dur:L("18–24 mo","18–24 ամիս","18–24 мес"),title:L("Traditional Braces","Դասական բրեկետներ","Классические брекеты"),desc:L("Classic, effective treatment for complex alignment.","Դասական, արդյունավետ բուժում բարդ շտկումների համար։","Классическое эффективное лечение сложных случаев.")},
+{icon:"tool",cat:"surgery",price:L("From $2,200","$2,200-ից","от $2,200"),dur:L("Several visits","Մի քանի այց","Несколько визитов"),title:L("Dental Implants","Իմպլանտներ","Имплантация зубов"),desc:L("Permanent tooth replacement that looks and feels real.","Մշտական փոխարինում, որն իրական ատամի տեսք ու զգացողություն է տալիս։","Постоянное замещение зуба — выглядит и ощущается как настоящее.")},
+{icon:"minus",cat:"surgery",price:L("From $250","$250-ից","от $250"),dur:L("60 min","60 րոպե","60 мин"),title:L("Wisdom Tooth Extraction","Իմաստության ատամի հեռացում","Удаление зуба мудрости"),desc:L("Safe, comfortable removal with modern techniques.","Անվտանգ և հարմարավետ հեռացում ժամանակակից մեթոդներով։","Безопасное и комфортное удаление современными методами.")}];
+const serviceOptions=[L("General Checkup","Ընդհանուր ստուգում","Общий осмотр"),L("Teeth Cleaning","Ատամների մաքրում","Чистка зубов"),L("Teeth Whitening","Ատամների սպիտակեցում","Отбеливание зубов"),L("Orthodontics","Օրթոդոնտիա","Ортодонтия"),L("Dental Implants","Իմպլանտներ","Имплантация"),L("Emergency Care","Անհետաձգելի օգնություն","Неотложная помощь")];
+const icons={check:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',sparkle:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3L13.5 8.5L19 10L13.5 11.5L12 17L10.5 11.5L5 10L10.5 8.5L12 3Z"/></svg>',star:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',layers:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',smile:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>',grid:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>',tool:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',minus:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>'};
+let currentLang=localStorage.getItem('lang')||'hy';
+let currentFilter='all';
+const t=k=>(i18n[currentLang]&&i18n[currentLang][k])||i18n.hy[k]||k;
+function applyStatic(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>el.innerHTML=t(el.getAttribute('data-i18n')));
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>el.placeholder=t(el.getAttribute('data-i18n-ph')));
+  document.documentElement.lang=currentLang;document.title=t('doc_title');
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===currentLang));
+}
+function renderServices(){
+  document.getElementById('servicesGrid').innerHTML=services.map(s=>`
+    <div class="service-card reveal ${currentFilter!=='all'&&s.cat!==currentFilter?'hidden':''}" data-category="${s.cat}">
+      <div class="service-icon">${icons[s.icon]}</div><h3>${s.title[currentLang]}</h3><p>${s.desc[currentLang]}</p>
+      <div class="service-meta"><span>⏱ ${s.dur[currentLang]}</span><span class="service-price">${s.price[currentLang]}</span></div>
+    </div>`).join('');
+  watchReveals();
+}
+function renderSelect(){
+  document.getElementById('service').innerHTML=`<option value="">${t('f_select')}</option>`+serviceOptions.map(o=>`<option>${o[currentLang]}</option>`).join('');
+}
+function setLang(l){currentLang=l;localStorage.setItem('lang',l);applyStatic();renderServices();renderSelect();}
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');currentFilter=btn.dataset.filter;
+  document.querySelectorAll('.service-card').forEach(c=>c.classList.toggle('hidden',currentFilter!=='all'&&c.dataset.category!==currentFilter));
+}));
+const dateInput=document.getElementById('date');dateInput.min=new Date().toISOString().split('T')[0];
+document.getElementById('bookingForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const msg=document.getElementById('formMessage');
+  const fname=document.getElementById('fname').value.trim(),lname=document.getElementById('lname').value.trim(),
+        email=document.getElementById('email').value.trim(),phone=document.getElementById('phone').value.trim();
+  msg.className='form-message';
+  if(!fname||!lname||!email||!phone||!dateInput.value){msg.textContent=t('msg_required');msg.classList.add('error');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent=t('msg_email');msg.classList.add('error');return;}
+  msg.textContent=t('msg_success').replace('{name}',fname);msg.classList.add('success');e.target.reset();
+});
+document.getElementById('newsletterForm').addEventListener('submit',e=>{
+  e.preventDefault();const input=e.target.querySelector('input');
+  alert(t('news_thanks').replace('{email}',input.value));input.value='';
+});
+document.getElementById('mapToggle').addEventListener('click',()=>{
+  const box=document.getElementById('mapBox');
+  box.style.display=box.style.display==='none'?'block':'none';
+});
+document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light');
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const n=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);
+});
+const menuToggle=document.getElementById('menuToggle'),nav=document.getElementById('nav');
+menuToggle.addEventListener('click',()=>{menuToggle.classList.toggle('active');nav.classList.toggle('open');});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuToggle.classList.remove('active');nav.classList.remove('open');}));
+const header=document.getElementById('header'),backTop=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{
+  header.classList.toggle('scrolled',scrollY>20);
+  backTop.classList.toggle('visible',scrollY>500);
+});
+backTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+const revealObserver=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');revealObserver.unobserve(en.target);}});},{threshold:.12});
+function watchReveals(){document.querySelectorAll('.reveal').forEach(el=>{if(!el.dataset.watched){el.dataset.watched=1;revealObserver.observe(el);}});}
+const counterObserver=new IntersectionObserver(es=>{es.forEach(en=>{
+  if(!en.isIntersecting)return;
+  const el=en.target,target=+el.dataset.target,suffix=el.dataset.suffix||'';
+  const start=performance.now(),dur=1800;
+  const step=now=>{const p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(e*target).toLocaleString()+(p===1?suffix:'');
+    if(p<1)requestAnimationFrame(step);};
+  requestAnimationFrame(step);counterObserver.unobserve(el);
+});},{threshold:.5});
+document.querySelectorAll('.stat-num').forEach(el=>counterObserver.observe(el));
+setLang(currentLang);watchReveals();
+</script>
+</body>
+</html>

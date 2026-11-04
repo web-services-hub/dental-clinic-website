@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="hy" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Մեր մասին — Serene Dental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Armenian:wght@400;500;600&family=Noto+Serif+Armenian:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5FAF9;--bg-alt:#E7F3F0;--surface:#FFFFFF;--sand:#D8EAE5;--accent:#DFF0EC;--primary:#4FB3A4;--primary-dark:#2E8C7D;--primary-light:#8ED2C6;--gold:#7CCFC0;--text:#274343;--text-soft:#5D7474;--text-muted:#8AA3A1;--border:#D2E5E0;--shadow-sm:0 2px 10px rgba(46,140,125,.10);--shadow-md:0 10px 30px rgba(46,140,125,.15);--shadow-lg:0 24px 70px rgba(46,140,125,.22);--radius-sm:10px;--radius-md:16px;--radius-lg:28px;--transition:.3s cubic-bezier(.4,0,.2,1);--header-height:74px}
+[data-theme="dark"]{--bg:#10201E;--bg-alt:#152826;--surface:#1B3230;--sand:#24403C;--accent:#213B38;--primary:#4FB3A4;--primary-dark:#7CCFC0;--primary-light:#2E6B60;--gold:#3E8F83;--text:#EAF4F2;--text-soft:#B7CCC9;--text-muted:#7E9794;--border:#2A4542;--shadow-sm:0 2px 10px rgba(0,0,0,.35);--shadow-md:0 10px 30px rgba(0,0,0,.45);--shadow-lg:0 24px 70px rgba(0,0,0,.55)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-height)}
+body{font-family:'Inter','Noto Sans Armenian',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background var(--transition),color var(--transition)}
+h1,h2,h3,h4{font-family:'Playfair Display','Noto Serif Armenian',Georgia,serif;font-weight:600;line-height:1.2;color:var(--text)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.9rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:all var(--transition);border:1px solid transparent}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.btn-light{background:#FFFFFF;color:#274343}
+.btn-light:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.header{position:fixed;top:0;left:0;right:0;height:var(--header-height);z-index:1000;background:rgba(245,250,249,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:all var(--transition)}
+[data-theme="dark"] .header{background:rgba(16,32,30,.86)}
+.header.scrolled{box-shadow:var(--shadow-sm)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:'Playfair Display','Noto Serif Armenian',serif;font-size:1.3rem;font-weight:700;color:var(--primary-dark)}
+.logo svg{width:30px;height:30px}
+.nav-list{display:flex;gap:1.7rem;list-style:none}
+.nav-list a{font-size:.93rem;font-weight:500;color:var(--text-soft);position:relative;transition:color var(--transition)}
+.nav-list a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--primary);transition:width var(--transition)}
+.nav-list a:hover,.nav-list a.active{color:var(--primary-dark)}
+.nav-list a:hover::after,.nav-list a.active::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:.7rem}
+.lang-switch{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:3px;gap:2px}
+.lang-btn{padding:.32rem .62rem;font-size:.72rem;font-weight:700;letter-spacing:.4px;color:var(--text-soft);border-radius:999px;transition:all var(--transition)}
+.lang-btn.active{background:var(--primary);color:#fff}
+.theme-toggle{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-soft);transition:all var(--transition)}
+.theme-toggle:hover{background:var(--bg-alt);color:var(--primary-dark)}
+.theme-toggle .icon-moon{display:none}
+[data-theme="dark"] .theme-toggle .icon-sun{display:none}
+[data-theme="dark"] .theme-toggle .icon-moon{display:block}
+.menu-toggle{display:none;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.menu-toggle span{width:22px;height:2px;background:var(--text);transition:all var(--transition)}
+.menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.page-hero{padding:calc(var(--header-height) + 3.5rem) 0 3rem;background:linear-gradient(160deg,var(--bg),var(--sand));text-align:center}
+.section-tag{display:inline-block;padding:.35rem 1.1rem;background:var(--accent);color:var(--primary-dark);border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:1rem}
+.page-hero h1{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1rem}
+.page-hero p{color:var(--text-soft);max-width:640px;margin:0 auto;font-size:1.05rem}
+.section{padding:5.5rem 0}
+.section-alt{background:var(--bg-alt)}
+.section-header{text-align:center;max-width:700px;margin:0 auto 3rem}
+.section-header h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1rem}
+.section-header p{color:var(--text-soft)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-image{aspect-ratio:4/4.4;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.about-image img{width:100%;height:100%;object-fit:cover}
+.about-content h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1.25rem}
+.about-content>p{color:var(--text-soft);margin-bottom:2rem;font-size:1.03rem}
+.features-list{list-style:none;display:grid;gap:1rem}
+.feature-item{display:flex;gap:1rem;align-items:flex-start;padding:1rem;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border);transition:all var(--transition)}
+.feature-item:hover{border-color:var(--primary);transform:translateX(4px)}
+.feature-icon{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--primary-dark);display:flex;align-items:center;justify-content:center}
+.feature-item h4{font-family:'Inter','Noto Sans Armenian',sans-serif;font-size:1rem;margin-bottom:.2rem}
+.feature-item p{font-size:.9rem;color:var(--text-soft)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}
+.doctor-card{background:var(--surface);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);transition:all var(--transition)}
+.doctor-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.doctor-image{aspect-ratio:1/1;background:linear-gradient(160deg,var(--sand),var(--primary-light));display:flex;align-items:center;justify-content:center}
+.doctor-image svg{width:52%}
+.doctor-info{padding:1.5rem;text-align:center}
+.doctor-info h3{font-family:'Inter','Noto Sans Armenian',sans-serif;font-size:1.1rem;margin-bottom:.25rem}
+.doctor-role{color:var(--primary-dark);font-size:.88rem;font-weight:600;margin-bottom:.7rem}
+.doctor-bio{font-size:.87rem;color:var(--text-soft)}
+.testimonials-wrapper{max-width:900px;margin:0 auto}
+.testimonials-slider{overflow:hidden;border-radius:var(--radius-lg)}
+.testimonials-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.testimonial{min-width:100%;padding:3rem;background:var(--surface);border:1px solid var(--border);text-align:center}
+.testimonial-stars{color:var(--primary);margin-bottom:1rem;font-size:1.15rem;letter-spacing:2px}
+.testimonial-text{font-size:1.12rem;line-height:1.75;font-style:italic;margin-bottom:1.5rem;color:var(--text)}
+.testimonial-author{display:flex;align-items:center;justify-content:center;gap:1rem}
+.author-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--gold));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.author-info{text-align:left}
+.author-name{font-weight:600}
+.author-role{font-size:.84rem;color:var(--text-muted)}
+.slider-nav{display:flex;justify-content:center;align-items:center;gap:1rem;margin-top:2rem}
+.slider-btn{width:44px;height:44px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
+.slider-btn:hover{background:var(--primary);color:#fff}
+.slider-dots{display:flex;gap:.5rem}
+.slider-dot{width:10px;height:10px;border-radius:999px;background:var(--border);cursor:pointer;transition:all var(--transition)}
+.slider-dot.active{background:var(--primary);width:28px}
+.faq-list{max-width:800px;margin:0 auto;display:grid;gap:1rem}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:all var(--transition)}
+.faq-item.open{border-color:var(--primary);box-shadow:var(--shadow-sm)}
+.faq-question{width:100%;padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;text-align:left;font-weight:500;font-size:1rem;color:var(--text)}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--bg-alt);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--transition)}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--primary);color:#fff}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer-inner{padding:0 1.5rem 1.25rem;color:var(--text-soft);font-size:.95rem}
+.cta{padding:5rem 0}
+.cta-box{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius-lg);padding:3.5rem 2rem;text-align:center;box-shadow:var(--shadow-md)}
+.cta-box h2{color:#fff;margin-bottom:.75rem}
+.cta-box p{color:#EAF7F4;margin-bottom:1.75rem}
+.footer{background:var(--bg-alt);padding:3rem 0 1.5rem;border-top:1px solid var(--border)}
+.footer-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+.footer-brand p{color:var(--text-soft);margin-top:.75rem;font-size:.92rem;max-width:340px}
+.footer-list{list-style:none;display:flex;gap:1.25rem;flex-wrap:wrap}
+.footer-list a{color:var(--text-soft);font-size:.92rem}
+.footer-list a:hover{color:var(--primary-dark)}
+.footer-bottom{padding-top:1.5rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:.86rem;text-align:center}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media (max-width:900px){
+  .menu-toggle{display:flex}
+  .nav{position:fixed;top:var(--header-height);left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);max-height:0;overflow:hidden;transition:max-height var(--transition)}
+  .nav.open{max-height:520px}
+  .nav-list{flex-direction:column;padding:1.5rem;gap:1rem}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+}
+@media (max-width:600px){.btn-book{display:none}.logo span{display:none}.testimonial{padding:2rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3C11 3 8 5.5 7 9C5.5 8 4 9 4 11C4 13 5.5 14.5 6 15C5 19 6 23 8 27C9 29 11 29 11.5 27C12.5 23 13.5 21 16 21C18.5 21 19.5 23 20.5 27C21 29 23 29 24 27C26 23 27 19 26 15C26.5 14.5 28 13 28 11C28 9 26.5 8 25 9C24 5.5 21 3 16 3Z" fill="currentColor"/></svg><span>Serene Dental</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" data-i18n="nav_home">Գլխավոր</a></li>
+        <li><a href="services.html" data-i18n="nav_services">Ծառայություններ</a></li>
+        <li><a href="about.html" class="active" data-i18n="nav_about">Մեր մասին</a></li>
+        <li><a href="about.html#team" data-i18n="nav_team">ԲԺիշկներ</a></li>
+        <li><a href="about.html#results" data-i18n="nav_results">Արդյունքներ</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Կապ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn active" data-lang="hy">ՀԱՅ</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#contact" class="btn btn-primary btn-book" style="padding:.6rem 1.3rem;font-size:.87rem" data-i18n="nav_book">Ամրագրել այց</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag" data-i18n="ph_tag">Մեր մասին</span>
+    <h1 data-i18n="ph_title">Կլինիկա, որտեղ ձեզ կսպասեն</h1>
+    <p data-i18n="ph_text">Ժամանակակից տեխնոլոգիաներ, տաք մթնոլորտ և թիմ, որը հոգում է ձեր ժպիտի մասին։</p>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-image reveal"><img src="lounge.jpg" alt="Serene Dental — սպասասրահ"></div>
+    <div class="about-content reveal">
+      <span class="section-tag" data-i18n="about_tag">Ինչու մենք</span>
+      <h2 data-i18n="about_title">Ձեր հարմարավետությունը մեր առաջնահերթությունն է</h2>
+      <p data-i18n="about_text">Serene Dental-ում մենք հավատում ենք, որ ստոմատոլոգիական այցերը պետք է լինեն հանգիստ, ոչ թե սթրեսային։ Մեր ժամանակակից կլինիկան, նուրբ մեթոդները և հոգատար թիմը ստեղծում են միջավայր, որը դուք կսպասեք։</p>
+      <ul class="features-list">
+        <li class="feature-item"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><h4 data-i18n="feat1_title">Սերտիֆիկացված մասնագետներ</h4><p data-i18n="feat1_text">Մեր թիմի յուրաքանչյուր բժիշկ ունի բարձր որակավորում և անցնում է շարունակական վերապատրաստում։</p></div></li>
+        <li class="feature-item"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><div><h4 data-i18n="feat2_title">Ժամանակակից տեխնոլոգիաներ</h4><p data-i18n="feat2_text">Թվային ռենտգեն, 3D պատկերավորում և լազերային ստոմատոլոգիա՝ ճշգրիտ ու անցավ խնամքի համար։</p></div></li>
+        <li class="feature-item"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div><h4 data-i18n="feat3_title">Նուրբ և առանց անհանգստության</h4><p data-i18n="feat3_text">Սեդացիայի ընտրանքներ և հանգստացնող մթնոլորտ՝ նույնիսկ ամենաանհանգիստ պացիենտների համար։</p></div></li>
+        <li class="feature-item"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4 data-i18n="feat4_title">Ճկուն գրաֆիկ</h4><p data-i18n="feat4_text">Երեկոյան և հանգստյան օրերի ընդունելություններ՝ ձեր զբաղված կյանքին հարմար։</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="team">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="team_tag">Մեր թիմը</span>
+      <h2 data-i18n="team_title">Ծանոթացեք մեր մասնագետների հետ</h2>
+      <p data-i18n="team_text">Նվիրված թիմ, որի նպատակը ձեր լավագույն ժպիտն է։</p>
+    </div>
+    <div class="team-grid" id="teamGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="testi_tag">Արդյունքներ</span>
+      <h2 data-i18n="testi_title">Իրական արդյունքներ, իրական ժպիտներ</h2>
+      <p data-i18n="testi_text">Իրական պատմություններ մարդկանցից, ովքեր վստահում են մեզ իրենց ժպիտները։</p>
+    </div>
+    <div class="testimonials-wrapper reveal">
+      <div class="testimonials-slider"><div class="testimonials-track" id="testimonialsTrack"></div></div>
+      <div class="slider-nav">
+        <button class="slider-btn" id="prevBtn" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="nextBtn" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="faq_tag">ՀՏՀ</span>
+      <h2 data-i18n="faq_title">Հաճախ տրվող հարցեր</h2>
+      <p data-i18n="faq_text">Պատասխաններ այն հարցերին, որոնք առավել հաճախ ենք լսում։</p>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2 data-i18n="cta_title">Պատրա՞ստ եք ժպիտի փոփոխության</h2>
+      <p data-i18n="cta_text">Ամրագրեք խորհրդատվություն և ստացեք անհատական բուժման պլան։</p>
+      <a href="index.html#contact" class="btn btn-light"><span data-i18n="cta_btn">Ամրագրել այց</span> →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><svg viewBox="0 0 32 32" fill="none" width="30" height="30"><path d="M16 3C11 3 8 5.5 7 9C5.5 8 4 9 4 11C4 13 5.5 14.5 6 15C5 19 6 23 8 27C9 29 11 29 11.5 27C12.5 23 13.5 21 16 21C18.5 21 19.5 23 20.5 27C21 29 23 29 24 27C26 23 27 19 26 15C26.5 14.5 28 13 28 11C28 9 26.5 8 25 9C24 5.5 21 3 16 3Z" fill="currentColor"/></svg><span>Serene Dental</span></a>
+        <p data-i18n="foot_about">Նուրբ, ժամանակակից ստոմատոլոգիական խնամք կյանքի յուրաքանչյուր փուլի համար։</p>
+      </div>
+      <ul class="footer-list">
+        <li><a href="index.html" data-i18n="nav_home">Գլխավոր</a></li>
+        <li><a href="services.html" data-i18n="nav_services">Ծառայություններ</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Մեր մասին</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Կապ</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom"><p data-i18n="foot_rights">© 2026 Serene Dental կլինիկա։ Բոլոր իրավունքները պաշտպանված են։</p></div>
+  </div>
+</footer>
+
+<script>
+const i18n={
+hy:{doc_title:"Մեր մասին — Serene Dental",nav_home:"Գլխավոր",nav_services:"Ծառայություններ",nav_about:"Մեր մասին",nav_team:"ԲԺիշկներ",nav_results:"Արդյունքներ",nav_contact:"Կապ",nav_book:"Ամրագրել այց",
+ph_tag:"Մեր մասին",ph_title:"Կլինիկա, որտեղ ձեզ կսպասեն",ph_text:"Ժամանակակից տեխնոլոգիաներ, տաք մթնոլորտ և թիմ, որը հոգում է ձեր ժպիտի մասին։",
+about_tag:"Ինչու մենք",about_title:"Ձեր հարմարավետությունը մեր առաջնահերթությունն է",about_text:"Serene Dental-ում մենք հավատում ենք, որ ստոմատոլոգիական այցերը պետք է լինեն հանգիստ, ոչ թե սթրեսային։ Մեր ժամանակակից կլինիկան, նուրբ մեթոդները և հոգատար թիմը ստեղծում են միջավայր, որը դուք կսպասեք։",
+feat1_title:"Սերտիֆիկացված մասնագետներ",feat1_text:"Մեր թիմի յուրաքանչյուր բժիշկ ունի բարձր որակավորում և անցնում է շարունակական վերապատրաստում։",feat2_title:"Ժամանակակից տեխնոլոգիաներ",feat2_text:"Թվային ռենտգեն, 3D պատկերավորում և լազերային ստոմատոլոգիա՝ ճշգրիտ ու անցավ խնամքի համար։",feat3_title:"Նուրբ և առանց անհանգստության",feat3_text:"Սեդացիայի ընտրանքներ և հանգստացնող մթնոլորտ՝ նույնիսկ ամենաանհանգիստ պացիենտների համար։",feat4_title:"Ճկուն գրաֆիկ",feat4_text:"Երեկոյան և հանգստյան օրերի ընդունելություններ՝ ձեր զբաղված կյանքին հարմար։",
+team_tag:"Մեր թիմը",team_title:"Ծանոթացեք մեր մասնագետների հետ",team_text:"Նվիրված թիմ, որի նպատակը ձեր լավագույն ժպիտն է։",
+testi_tag:"Արդյունքներ",testi_title:"Իրական արդյունքներ, իրական ժպիտներ",testi_text:"Իրական պատմություններ մարդկանցից, ովքեր վստահում են մեզ իրենց ժպիտները։",
+faq_tag:"ՀՏՀ",faq_title:"Հաճախ տրվող հարցեր",faq_text:"Պատասխաններ այն հարցերին, որոնք առավել հաճախ ենք լսում։",
+cta_title:"Պատրա՞ստ եք ժպիտի փոփոխության",cta_text:"Ամրագրեք խորհրդատվություն և ստացեք անհատական բուժման պլան։",cta_btn:"Ամրագրել այց",
+foot_about:"Նուրբ, ժամանակակից ստոմատոլոգիական խնամք կյանքի յուրաքանչյուր փուլի համար։",foot_rights:"© 2026 Serene Dental կլինիկա։ Բոլոր իրավունքները պաշտպանված են։"},
+en:{doc_title:"About Us — Serene Dental",nav_home:"Home",nav_services:"Services",nav_about:"About Us",nav_team:"Doctors",nav_results:"Results",nav_contact:"Contact",nav_book:"Book a Visit",
+ph_tag:"About Us",ph_title:"A clinic where you'll be expected",ph_text:"Modern technology, a warm atmosphere and a team that cares about your smile.",
+about_tag:"Why Choose Us",about_title:"Your Comfort Is Our Priority",about_text:"At Serene Dental, we believe dental visits should be relaxing, not stressful. Our modern facility, gentle techniques, and caring team create an experience you'll actually look forward to.",
+feat1_title:"Board-Certified Specialists",feat1_text:"Every dentist on our team holds advanced certifications and ongoing training.",feat2_title:"Modern Technology",feat2_text:"Digital X-rays, 3D imaging, and laser dentistry for precise, painless care.",feat3_title:"Gentle & Anxiety-Free",feat3_text:"Sedation options and a calming atmosphere for even the most nervous patients.",feat4_title:"Flexible Scheduling",feat4_text:"Evening and weekend appointments to fit your busy lifestyle.",
+team_tag:"Our Team",team_title:"Meet Your Dental Experts",team_text:"A passionate team dedicated to giving you the best smile possible.",
+testi_tag:"Results",testi_title:"Real Results, Real Smiles",testi_text:"Real stories from people who trust us with their smiles.",
+faq_tag:"FAQ",faq_title:"Common Questions",faq_text:"Answers to the questions we hear most often.",
+cta_title:"Ready for a smile change?",cta_text:"Book a consultation and get a personal treatment plan.",cta_btn:"Book a Visit",
+foot_about:"Gentle, modern dental care for every stage of life.",foot_rights:"© 2026 Serene Dental Clinic. All rights reserved."},
+ru:{doc_title:"О нас — Serene Dental",nav_home:"Главная",nav_services:"Услуги",nav_about:"О нас",nav_team:"Врачи",nav_results:"Результаты",nav_contact:"Контакты",nav_book:"Записаться",
+ph_tag:"О нас",ph_title:"Клиника, где вас ждут",ph_text:"Современные технологии, тёплая атмосфера и команда, которая заботится о вашей улыбке.",
+about_tag:"Почему мы",about_title:"Ваш комфорт — наш приоритет",about_text:"В Serene Dental мы верим, что визит к стоматологу должен быть спокойным, а не стрессовым. Наша современная клиника, деликатные методы и заботливая команда создают атмосферу, которую вы будете ждать.",
+feat1_title:"Сертифицированные специалисты",feat1_text:"Каждый врач нашей команды имеет высшую квалификацию и проходит постоянное обучение.",feat2_title:"Современные технологии",feat2_text:"Цифровые снимки, 3D-диагностика и лазерная стоматология для точного и безболезненного лечения.",feat3_title:"Деликатно и без тревоги",feat3_text:"Возможности седации и успокаивающая атмосфера даже для самых тревожных пациентов.",feat4_title:"Гибкое расписание",feat4_text:"Приёмы вечером и в выходные, чтобы подстроиться под ваш ритм жизни.",
+team_tag:"Наша команда",team_title:"Познакомьтесь с нашими врачами",team_text:"Команда, преданная своему делу — подарить вам лучшую улыбку.",
+testi_tag:"Результаты",testi_title:"Реальные результаты, реальные улыбки",testi_text:"Реальные истории людей, которые доверяют нам свои улыбки.",
+faq_tag:"FAQ",faq_title:"Частые вопросы",faq_text:"Ответы на вопросы, которые мы слышим чаще всего.",
+cta_title:"Готовы к перемене улыбки?",cta_text:"Запишитесь на консультацию и получите индивидуальный план лечения.",cta_btn:"Записаться",
+foot_about:"Деликатный современный уход за зубами на каждом этапе жизни.",foot_rights:"© 2026 Клиника Serene Dental. Все права защищены."}};
+const L=(en,hy,ru)=>({en,hy,ru});
+const doctors=[
+{name:"Dr. Emily Chen",role:L("Lead Dentist & Founder","Գլխավոր բժիշկ և հիմնադիր","Ведущий врач и основатель"),bio:L("15+ years specializing in cosmetic and restorative dentistry.","Ավելի քան 15 տարի էսթետիկ և վերականգնողական ստոմատոլոգիայի մասնագետ։","Более 15 лет специализируется на эстетической и восстановительной стоматологии.")},
+{name:"Dr. Marcus Rivera",role:L("Orthodontist","Օրթոդոնտ","Ортодонт"),bio:L("Expert in clear aligners and modern orthodontic solutions.","Թափանցիկ էլայներների և ժամանակակից օրթոդոնտիկ լուծումների փորձագետ։","Эксперт по прозрачным элайнерам и современным ортодонтическим решениям.")},
+{name:"Dr. Sophia Patel",role:L("Pediatric Specialist","Մանկական մասնագետ","Детский стоматолог"),bio:L("Dedicated to making children's dental visits fun and fear-free.","Նվիրված է երեխաների այցերը զվարալի և առանց վախի դարձնելուն։","Делает детские визиты весёлыми и без страха.")},
+{name:"Dr. James Okafor",role:L("Oral Surgeon","Բերանի խոռոչի վիրաբույժ","Хирург-имплантолог"),bio:L("Specializes in implants and complex surgical procedures.","Մասնագիտանում է իմպլանտների և բարդ վիրահատական ընթացակարգերի մեջ։","Специализируется на имплантации и сложных хирургических процедурах.")}];
+const testimonials=[
+{name:"Sarah Mitchell",role:L("Patient since 2020","Պացիենտ 2020-ից","Пациент с 2020 года"),text:L("The calmest dental experience I've ever had. Dr. Chen and her team are genuinely caring — I actually look forward to my appointments now!","Ամենահանգիստ ստոմատոլոգիական փորձառությունը, որ երբևէ ունեցել եմ։ Դոկտոր Չենը և իր թիմը իսկապես հոգատար են․ այժմ համբերությամբ սպասում եմ իմ ընդունելություններին։","Самый спокойный стоматологический опыт в моей жизни. Доктор Чен и её команда действительно заботливы!")},
+{name:"David Park",role:L("Orthodontics patient","Օրթոդոնտիկ պացիենտ","Пациент ортодонтии"),text:L("My Invisalign journey was seamless. The staff explained every step, and the results exceeded my expectations. Highly recommend!","Իմ Invisalign ճանապարհը անթերի էր։ Անձնակազմը բացատրեց ամեն քայլ, և արդյունքները գերազանցեցին սպասումներս։","Моё лечение Invisalign прошло безупречно. Персонал объяснял каждый шаг, результат превзошёл ожидания!")},
+{name:"Amelia Thompson",role:L("Family patient","Ընտանեկան պացիենտ","Семейный пациент"),text:L("We bring our whole family here. The pediatric care is exceptional — my kids used to hate the dentist, now they ask when the next visit is.","Մենք ամբողջ ընտանիքով գալիս ենք այստեղ։ Մանկական խնամքը բացառիկ է․ երեխաներս այժմ հարցնում են, թե երբ է հաջորդ այցը։","Мы приходим сюда всей семьёй. Детский уход превосходен — дети сами спрашивают, когда следующий визит.")},
+{name:"Robert Hayes",role:L("Implant patient","Իմպլանտի պացիենտ","Пациент по имплантации"),text:L("After years of avoiding the dentist, I finally got implants at Serene Dental. The technology is amazing and the aftercare was outstanding.","Տարիներ շարունակ ատամնաբույժից խուսափելուց հետո ես վերջապես իմպլանտներ տեղադրեցի Serene Dental-ում։ Տեխնոլոգիաները հիանալի են։","После многих лет избегания стоматолога я наконец поставил импланты в Serene Dental. Технологии потрясающие.")}];
+const faqs=[
+{q:L("How often should I visit the dentist?","Որքա՞ն հաճախ պետք է այցելել ատամնաբույժի։","Как часто нужно посещать стоматолога?"),a:L("We recommend a checkup and cleaning every six months.","Խորհուրդ ենք տալիս ստուգում և մաքրում անցնել ամեն 6 ամիսը մեկ։","Рекомендуем осмотр и чистку каждые 6 месяцев.")},
+{q:L("Do you accept dental insurance?","Ընդունո՞ւմ եք ապահովագրություն։","Принимаете ли вы страховку?"),a:L("Yes, we accept most major dental insurance plans and offer flexible payment options.","Այո, ընդունում ենք ապահովագրական հիմնական ծրագրերը և առաջարկում ճկուն վճարման տարբերակներ։","Да, принимаем большинство страховых планов и предлагаем рассрочку.")},
+{q:L("Is teeth whitening safe?","Անվտա՞նգ է ատամների սպիտակեցումը։","Безопасно ли отбеливание зубов?"),a:L("Professional whitening in our clinic is safe and effective, with minimized sensitivity.","Մեր կլինիկայում պրոֆեսիոնալ սպիտակեցումը անվտանգ է և արդյունավետ՝ նվազեցված զգայունությամբ։","Профессиональное отбеливание в нашей клинике безопасно и эффективно.")},
+{q:L("What should I do in a dental emergency?","Ինչ անել անհետաձգելի դեպքում։","Что делать при неотложной ситуации?"),a:L("Call us immediately — we reserve daily slots for emergencies, often same-day.","Անմիջապես զանգահարեք․ մենք ամեն օր տեղեր ենք վերապահում անհետաձգելի դեպքերի համար։","Сразу позвоните нам — мы ежедневно оставляем места для неотложных случаев.")},
+{q:L("Do you treat children?","Բուժո՞ւմ եք երեխաներին։","Лечите ли вы детей?"),a:L("Absolutely! Dr. Patel specializes in pediatric dentistry in a kid-friendly environment.","Անշուշտ։ Դոկտոր Պատելը մասնագիտանում է մանկական ստոմատոլոգիայի մեջ։","Конечно! Доктор Пател специализируется на детской стоматологии.")},
+{q:L("How long do dental implants last?","Որքա՞ն են ծառայում իմպլանտները։","Сколько служат импланты?"),a:L("With proper care, implants can last a lifetime; the crown may need replacement after 15–20 years.","Ճիշտ խնամքի դեպքում իմպլանտները կարող են ծառայել ողջ կյանքում։","При правильном уходе импланты могут служить всю жизнь.")}];
+let currentLang=localStorage.getItem('lang')||'hy';
+const t=k=>(i18n[currentLang]&&i18n[currentLang][k])||i18n.hy[k]||k;
+function applyStatic(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>el.innerHTML=t(el.getAttribute('data-i18n')));
+  document.documentElement.lang=currentLang;document.title=t('doc_title');
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===currentLang));
+}
+let currentSlide=0;
+function render(){
+  document.getElementById('teamGrid').innerHTML=doctors.map(d=>`
+    <div class="doctor-card reveal">
+      <div class="doctor-image"><svg viewBox="0 0 120 120"><circle cx="60" cy="45" r="22" fill="#FFFFFF"/><path d="M20 120 Q20 80 60 80 Q100 80 100 120 Z" fill="#FFFFFF"/></svg></div>
+      <div class="doctor-info"><h3>${d.name}</h3><div class="doctor-role">${d.role[currentLang]}</div><p class="doctor-bio">${d.bio[currentLang]}</p></div>
+    </div>`).join('');
+  const track=document.getElementById('testimonialsTrack'),dots=document.getElementById('sliderDots');
+  track.innerHTML=testimonials.map(x=>`
+    <div class="testimonial"><div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">“${x.text[currentLang]}”</p>
+      <div class="testimonial-author"><div class="author-avatar">${x.name.split(' ').map(n=>n[0]).join('')}</div>
+      <div class="author-info"><div class="author-name">${x.name}</div><div class="author-role">${x.role[currentLang]}</div></div></div>
+    </div>`).join('');
+  dots.innerHTML=testimonials.map((_,i)=>`<div class="slider-dot${i===currentSlide?' active':''}" data-i="${i}"></div>`).join('');
+  dots.querySelectorAll('.slider-dot').forEach(d=>d.addEventListener('click',()=>goToSlide(+d.dataset.i)));
+  goToSlide(currentSlide);
+  const list=document.getElementById('faqList');
+  list.innerHTML=faqs.map(f=>`
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false"><span>${f.q[currentLang]}</span>
+        <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">${f.a[currentLang]}</div></div>
+    </div>`).join('');
+  list.querySelectorAll('.faq-question').forEach(btn=>btn.addEventListener('click',()=>{
+    const item=btn.parentElement,wasOpen=item.classList.contains('open');
+    list.querySelectorAll('.faq-item').forEach(fi=>{fi.classList.remove('open');fi.querySelector('.faq-answer').style.maxHeight='0';fi.querySelector('.faq-question').setAttribute('aria-expanded','false');});
+    if(!wasOpen){item.classList.add('open');const a=item.querySelector('.faq-answer');a.style.maxHeight=a.scrollHeight+'px';btn.setAttribute('aria-expanded','true');}
+  }));
+  watchReveals();
+}
+function goToSlide(i){
+  currentSlide=(i+testimonials.length)%testimonials.length;
+  document.getElementById('testimonialsTrack').style.transform=`translateX(-${currentSlide*100}%)`;
+  document.querySelectorAll('.slider-dot').forEach((d,idx)=>d.classList.toggle('active',idx===currentSlide));
+}
+document.getElementById('prevBtn').addEventListener('click',()=>goToSlide(currentSlide-1));
+document.getElementById('nextBtn').addEventListener('click',()=>goToSlide(currentSlide+1));
+let autoSlide=setInterval(()=>goToSlide(currentSlide+1),6000);
+document.querySelector('.testimonials-slider').addEventListener('mouseenter',()=>clearInterval(autoSlide));
+document.querySelector('.testimonials-slider').addEventListener('mouseleave',()=>{autoSlide=setInterval(()=>goToSlide(currentSlide+1),6000);});
+function setLang(l){currentLang=l;localStorage.setItem('lang',l);applyStatic();render();}
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light');
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const n=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);
+});
+const menuToggle=document.getElementById('menuToggle'),nav=document.getElementById('nav');
+menuToggle.addEventListener('click',()=>{menuToggle.classList.toggle('active');nav.classList.toggle('open');});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuToggle.classList.remove('active');nav.classList.remove('open');}));
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',scrollY>20));
+const revealObserver=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');revealObserver.unobserve(en.target);}});},{threshold:.12});
+function watchReveals(){document.querySelectorAll('.reveal').forEach(el=>{if(!el.dataset.watched){el.dataset.watched=1;revealObserver.observe(el);}});}
+setLang(currentLang);
+</script>
+</body>
+</html>
